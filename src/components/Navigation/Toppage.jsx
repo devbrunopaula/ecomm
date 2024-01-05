@@ -15,6 +15,15 @@ export function TopPage() {
         </span>
       </div>
 
+      <div className="hidden lg:flex w-96 h-11 text-center justify-center items-center">
+        <span className="text-neutral-400 text-xs font-semibold font-['Poppins']">
+          Visit our showroom in 1234 Street Adress City Address, 1234
+        </span>
+        <span className="text-white text-xs font-semibold font-['Poppins'] ml-1">
+         
+          Contact Us
+        </span>
+      </div>
       <div className="c">
         <div className="w-[114px] h-[15px]">
           <p className="h-[15px] top-0 left-0 [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-white text-[10px] text-center tracking-[0] leading-[normal]">
