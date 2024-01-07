@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import { FaChevronDown } from "react-icons/fa"
 export function TopPage() {
   return (
@@ -20,7 +20,6 @@ export function TopPage() {
           Visit our showroom in 1234 Street Adress City Address, 1234
         </span>
         <span className="text-white text-xs font-semibold font-['Poppins'] ml-1">
-         
           Contact Us
         </span>
       </div>

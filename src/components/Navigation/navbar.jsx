@@ -1,53 +1,63 @@
-import React from 'react'
-import { TopPage } from './Toppage'
-import { FaSearch, FaBars, FaUser} from "react-icons/fa"
+"use client"
+import { React, Fragment, useState } from "react"
+import { TopPage } from "./Toppage"
+import { FaSearch, FaBars, FaUser } from "react-icons/fa"
 import { SiNintendogamecube } from "react-icons/si"
 import { LuShoppingCart } from "react-icons/lu"
+
+import { Dialog, Transition } from "@headlessui/react"
+import {
+  Bars3Icon,
+  CalendarIcon,
+  ChartPieIcon,
+  DocumentDuplicateIcon,
+  FolderIcon,
+  HomeIcon,
+  UsersIcon,
+  XMarkIcon
+} from "@heroicons/react/24/outline"
+import DesktopNav from "./desktopNav"
+import MobileNav from "./mobileNav"
+
 function Nav() {
+  const navigation = [
+    { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+    { name: "Team", href: "#", icon: UsersIcon, current: false },
+    { name: "Projects", href: "#", icon: FolderIcon, current: false },
+    { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+    {
+      name: "Documents",
+      href: "#",
+      icon: DocumentDuplicateIcon,
+      current: false
+    },
+    { name: "Reports", href: "#", icon: ChartPieIcon, current: false }
+  ]
+  const teams = [
+    { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
+    { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
+    { id: 3, name: "Workcation", href: "#", initial: "W", current: false }
+  ]
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ")
+  }
+
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
   return (
     <>
-      <nav>
-        <TopPage />
-        <div className="h-28 bg-[#0156FF] flex flex-col justify-around py-1 ">
-          <div className="flex justify-around items-center ">
-            <span>
-              <FaBars className="text-white text-xl" />
-            </span>
-            <span>
-              <SiNintendogamecube className="text-white text-xl" />
-            </span>
-            <div className=" flex  justify-center items-center border border-2 rounded-2xl ">
-              <span className="text-white my-1 mx-5 text-sm text-bold ">
-                Our Deals
-              </span>
-            </div>
-            <div className="relative">
-              <LuShoppingCart className="text-white text-xl font-bold" />
-              <span className=" bg-white rounded-full absolute bottom-3 left-4 inline-flex items-center  px-1  text-xs  text-[#0156FF]  ring-red-600/10 font-bold">
-                2
-              </span>
-            </div>
-            <div className=" flex  justify-center items-center w-8 h-8 rounded-full border-2 border-white">
-              <FaUser className="text-white text-sm" />
-            </div>
-          </div>
-          <div className="flex justify-center ">
-            <div className="bg-white h-10 flex  p-6 justify-center rounded-full  items-center w-[90%]   border border-green-500 ">
-              <span>
-                <FaSearch className="text-gray-300 text-lg" />
-              </span>
-
-              <input
-                className="h-9 w-[90%] mx-4 !outline-none text-lg"
-                type="search"
-                name=""
-                id=""
-                placeholder="Search for goods"
-              />
-            </div>
-          </div>
+      <div>
+        <div>
+          <TopPage />
         </div>
-      </nav>
+        <div className="md:hidden">
+          <MobileNav />
+        </div>
+        <div>
+          <DesktopNav className="" />
+        </div>
+      </div>
     </>
   )
 }
