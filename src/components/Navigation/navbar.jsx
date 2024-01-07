@@ -51,7 +51,7 @@ function Nav() {
         <div>
           <TopPage />
         </div>
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <MobileNav />
         </div>
         <div>
