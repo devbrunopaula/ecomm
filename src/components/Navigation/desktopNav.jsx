@@ -58,17 +58,15 @@ function classNames(...classes) {
 export default function DesktopNav() {
   const [open, onOpen] = useState(false)
   return (
-    <div className="hidden lg:flex border border-b-2  bg-fuchsia-400 lg:bg-green-300">
+    <div className="hidden lg:flex border border-b-2  ">
       <div className=" md:flex container mx-auto  justify-between h-24   items-center ">
         <div className="logo">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             {/* <Image
               className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              href="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt=""
-              width={100}
-              height={100}
             /> */}
             <span>Logo</span>
           </a>
