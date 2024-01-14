@@ -49,8 +49,7 @@ function MobileNav() {
           <Dialog
             as="div"
             className="relative z-50 lg:hidden"
-            onClose={setSidebarOpen}
-          >
+            onClose={setSidebarOpen}>
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -58,8 +57,7 @@ function MobileNav() {
               enterTo="opacity-100"
               leave="transition-opacity ease-linear duration-300"
               leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
+              leaveTo="opacity-0">
               <div className="fixed inset-0 bg-gray-900/80" />
             </Transition.Child>
 
@@ -71,8 +69,7 @@ function MobileNav() {
                 enterTo="translate-x-0"
                 leave="transition ease-in-out duration-300 transform"
                 leaveFrom="translate-x-0"
-                leaveTo="-translate-x-full"
-              >
+                leaveTo="-translate-x-full">
                 <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1">
                   <Transition.Child
                     as={Fragment}
@@ -81,14 +78,12 @@ function MobileNav() {
                     enterTo="opacity-100"
                     leave="ease-in-out duration-300"
                     leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
+                    leaveTo="opacity-0">
                     <div className="absolute right-0 top-0 flex w-16 justify-center pt-5">
                       <button
                         type="button"
                         className="-m-2.5 p-2.5"
-                        onClick={() => setSidebarOpen(false)}
-                      >
+                        onClick={() => setSidebarOpen(false)}>
                         <span className="sr-only">Close sidebar</span>
                         <XMarkIcon
                           className="h-6 w-6  text-black"
@@ -119,8 +114,7 @@ function MobileNav() {
                                       ? "bg-gray-50 text-indigo-600"
                                       : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                                  )}
-                                >
+                                  )}>
                                   <item.icon
                                     className={classNames(
                                       item.current
@@ -150,16 +144,14 @@ function MobileNav() {
                                       ? "bg-gray-50 text-indigo-600"
                                       : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                                  )}
-                                >
+                                  )}>
                                   <span
                                     className={classNames(
                                       team.current
                                         ? "text-indigo-600 border-indigo-600"
                                         : "text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600",
                                       "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white"
-                                    )}
-                                  >
+                                    )}>
                                     {team.initial}
                                   </span>
                                   <span className="truncate">{team.name}</span>
@@ -185,8 +177,7 @@ function MobileNav() {
                 <button
                   type="button"
                   className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
-                  onClick={() => setSidebarOpen(true)}
-                >
+                  onClick={() => setSidebarOpen(true)}>
                   <span className="sr-only">Open sidebar</span>
                   {/* <Bars3Icon className="h-6 w-6" aria-hidden="true" /> */}
                   <FaBars className="text-white text-xl" />
@@ -212,18 +203,19 @@ function MobileNav() {
             </div>
           </div>
           <div className="flex justify-center ">
-            <div className="bg-white h-10 flex  p-6 justify-center rounded-full  items-center w-[90%]   border border-green-500 ">
-              <span>
-                <FaSearch className="text-gray-300 text-lg" />
-              </span>
-
-              <input
-                className="h-9 w-[90%] mx-4 !outline-none text-lg"
-                type="search"
-                name=""
-                id=""
-                placeholder="Search for goods"
-              />
+            <div className="w-[90%] bg-white h-10 flex  p-6  rounded-full  items-center   ">
+              <div>
+                <FaSearch className=" text-gray-300 text-2xl" />
+              </div>
+              <div className=" flex-1  flex justify-around w-max ">
+                <input
+                  className="w-[100%] border-0 focus:ring-0"
+                  type="search"
+                  name="search"
+                  id="search"
+                  placeholder="Search for goods"
+                />
+              </div>
             </div>
           </div>
         </div>
