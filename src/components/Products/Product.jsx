@@ -5,10 +5,8 @@ import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6"
 import Title from "./Title"
 import Price from "./Price"
 
-function Product({ inStock, title, description, price, review, markdown }) {
-  const available = () => {
-    console.log(inStock)
-  }
+function Product({ inStock, name, description, price, reviews, markdown }) {
+  const available = () => {}
   return (
     <div className="w-[200px]">
       <div className="container mx-auto border-blue-900 flex-col p-2">
@@ -37,10 +35,10 @@ function Product({ inStock, title, description, price, review, markdown }) {
             />
           </div>
           <div className="str mt-3 mb-3 ">
-            <Stars count={review} />
+            <Stars reviews={reviews} />
           </div>
           <div className="title text-sm ">
-            <Title className="" title={title} description={description} />
+            <Title className="" title={name} description={description} />
           </div>
           <Price price={price} markdown={markdown} />
         </div>
