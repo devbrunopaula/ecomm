@@ -1,11 +1,11 @@
 "use client"
 
-function Price({ price, markdown }) {
+function Price({ price, discount }) {
   return (
     <div className="mt-4 price">
-      {markdown ? (
+      {discount ? (
         <div>
-          <div className="line-through text-xs text-gray-400 ">${markdown}</div>
+          <div className="line-through text-xs text-gray-400 ">${discount}</div>
           <div className="price font-semibold">${price}</div>
         </div>
       ) : (

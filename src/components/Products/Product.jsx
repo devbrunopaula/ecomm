@@ -5,11 +5,19 @@ import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6"
 import Title from "./Title"
 import Price from "./Price"
 
-function Product({ inStock, name, description, price, reviews, markdown }) {
+function Product({
+  inStock,
+  name,
+  description,
+  price,
+  reviews,
+  discount,
+  imageUrl
+}) {
   const available = () => {}
   return (
     <div className="w-[200px]">
-      <div className="container mx-auto border-blue-900 flex-col p-2">
+      <div className="container mx-auto border border-blue-900 flex-col p-2">
         <div className="wrapper ">
           <div className="instock flex text-sm items-center ">
             {inStock ? (
@@ -29,10 +37,7 @@ function Product({ inStock, name, description, price, reviews, markdown }) {
             )}
           </div>
           <div className="product">
-            <img
-              className="w-40 h-40"
-              src="https://as-images.apple.com/is/refurb-ipad-mini-wifi-spacegray-gallery-2019?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1581026442388"
-            />
+            <img className="w-40 h-40" src={imageUrl} />
           </div>
           <div className="str mt-3 mb-3 ">
             <Stars reviews={reviews} />
@@ -40,7 +45,7 @@ function Product({ inStock, name, description, price, reviews, markdown }) {
           <div className="title text-sm ">
             <Title className="" title={name} description={description} />
           </div>
-          <Price price={price} markdown={markdown} />
+          <Price price={price} discount={discount} />
         </div>
       </div>
     </div>

@@ -4,9 +4,7 @@ import { useState } from "react"
 
 function Stars({ reviews }) {
   let items = []
-  console.log(reviews)
-
-  
+  // console.log(reviews)
 
   // if (!reviews) {
   //   count = 0
