@@ -1,18 +1,27 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Product from "./Product"
 import products from "./products"
 import { Carousel } from "flowbite-react"
 
 function NewProducts() {
+  const [prevSlide, setPrevSlide] = useState(0)
   const [nextSlide, setNextSlide] = useState(6)
-  const [prevSlide, setPrevSlide] = useState(-6)
+  const [item, setItems] = useState(products)
 
-  const handleSlide = (e) => {
-    setNextSlide(console.log(e))
+  // useEffect(() => {}, [prevSlide, nextSlide])
+
+  const handleNextSlide = () => {
+    setNextSlide(() => nextSlide + 6)
+    setPrevSlide(() => prevSlide + 6)
   }
-  console.log("nextSlide", nextSlide)
+
+  const handlePrevSlide = () => {
+    setPrevSlide(() => prevSlide - 6)
+    setNextSlide(() => nextSlide - 6)
+  }
+
   return (
     <div>
       <div className="container mx-auto px-3 flex justify-between items-center">
@@ -25,13 +34,28 @@ function NewProducts() {
           See All New Products
         </Link>
       </div>
-      <button onClick={() => setNextSlide((e) => handleSlide(e))}>Prev</button>
-      <button>Next</button>
-      <div className="hidden md:grid grid-cols-1 container mx-auto  md:grid-cols-4 md:gap-6 lg:grid-cols-6"></div>
-      <Carousel className="hidden">
-        {products.map((e) => (
+      <button
+        type="button"
+        onClick={(e) => handlePrevSlide(e)}
+        className=" rounded bg-indigo-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        PREV
+      </button>
+      <button
+        type="button"
+        onClick={(e) => handleNextSlide(e)}
+        className=" rounded bg-indigo-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        NEXT
+      </button>
+
+      <span>
+        <p>Start {prevSlide}</p>
+        <p>next {nextSlide}</p>
+      </span>
+
+      <div className="grid grid-cols-6 gap-1">
+        {item.slice(prevSlide, nextSlide).map((e) => (
           <Product
-            key={e.id + "22"}
+            key={e.id}
             inStock={e.in_stock}
             description={e.description}
             price={e.price}
@@ -40,7 +64,7 @@ function NewProducts() {
             imageUrl={e.imageUrl}
           />
         ))}
-      </Carousel>
+      </div>
     </div>
   )
 }
